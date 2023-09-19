@@ -93,7 +93,6 @@ print (sentence)
 
 
     
-print ("Is '%s' a palindrome?" % original, 'yes' if is_palindrome(sentence) else 'no')
 # -
 
 # ## 6. Fibonacci
@@ -106,10 +105,6 @@ print ("Is '%s' a palindrome?" % original, 'yes' if is_palindrome(sentence) else
 
 # +
 
-
-print(fibonacci(0))
-print(fibonacci(4))
-print(fibonacci(9))
 
 
 # -
@@ -146,4 +141,3 @@ marc = Node("Marc", parent=udo)
 # +
 
     
-print_tree(udo)
