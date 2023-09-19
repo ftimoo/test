@@ -12,15 +12,13 @@
 #     name: python3
 # ---
 import streamlit as st
-st.markdown(
-# # Exercises
+st.markdown('# Exercises')
 #
 # **Important**: Try to think of a recursive solution to the problems below yourself. Do not use the Internet, because you will ruin all the fun.
 
 # ## 1. Sum
 #
 # Write a recursive function `sum(n)` that computes the sum of all numbers from 1 to n, where n is given as a parameter.
-)
 # +
 def sum(n):
     if(n==1):
