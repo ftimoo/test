@@ -11,20 +11,142 @@
 #     language: python
 #     name: python3
 # ---
+import streamlit as st
+st.markdown(
+# # Exercises
+#
+# **Important**: Try to think of a recursive solution to the problems below yourself. Do not use the Internet, because you will ruin all the fun.
 
-# # Recursion
+# ## 1. Sum
 #
-# Our first lesson is about recursion, a common method of simplification to divide a problem into subproblems of the same type.
-# As a computer programming technique, this is called __divide and conquer__ and is the key to the design of many important algorithms. Recursion is not really needed to implement AI, but the knowledge of this programming technique will help us to understand the AI algorithms we will use in the following lessons. At the end of this lesson you will use recursion to solve your first pseudo-AI problem, namely _The Towers of Hanoi_.
+# Write a recursive function `sum(n)` that computes the sum of all numbers from 1 to n, where n is given as a parameter.
+)
+# +
+def sum(n):
+    if(n==1):
+        return 1
+    else:
+        return n + sum(n-1)
 
-# ## The Towers of Hanoi
+print(sum(5))
+# -
+
+# ## 2. Sum_array
 #
-# The Towers of Hanoi is a mathematical game or puzzle. It consists of three rods and a number of disks of different sizes. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top.
+# Write a recursive function `sum_array(numbers)` that computes and returns the sum of all elements in an array, where the array is given as a parameter. You can return all elements except the first one of an array using:
+
+names = ["Jeff", "Peter", "April"]
+print(names[1:])
+
+# +
+numbers = [5, 7, 6, 5, 2, 1]
+
+def sum_array(numbers):
+    if(len(numbers) ==1):
+        return numbers[0]
+    return numbers[0] + sum_array(numbers[1:])
+
+    
+print(sum_array(numbers))
+# -
+
+# ## 3. Minimum
 #
-# <img src="./resources/towers.jpg"  style="height: 250px"/>
+# Write a recursive function `minimum(numbers)` that finds and returns the minimum element in an array, where the array is given as a parameter.
+
+# +
+numbers = [5, 7, 2, 5, 15, 10]
+
+def min(numbers,b=None):
+    if(len(numbers) == 0):
+        return b
+    if(b == None):
+        return min(numbers[1:],numbers[0])
+    if(numbers[0]<b):
+        return min(numbers[1:],numbers[0])
+    return min(numbers[1:],b)
+print(min(numbers))
+# -
+
+# ## 4. Reverse
 #
-# The objective of the puzzle is to move the entire stack to another rod, obeying the following simple rules:
+# Write a function `reverse(word)` to reverse a string using recursion.
+
+# +
+animal = "hippopotamus"
+
+
+    
+print(reverse(animal))
+# -
+
+# ## 5. Is_palindrome
 #
-# - Only one disk can be moved at a time.
-# - Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or on an empty rod.
-# - No larger disk may be placed on top of a smaller disk.
+# Write a recursive function `is_palindrome(sentence)` that determines whether a string is a palindrome. A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward, such as madam or racecar or the number 10801.
+
+# +
+import re
+
+original = "A man, a plan, a canal, Panama!"
+# original = "Gate man sees name, garage man sees name tag."
+
+sentence = re.sub('[^A-Za-z]', '', original)
+sentence = sentence.lower()
+print (sentence)
+
+
+    
+print ("Is '%s' a palindrome?" % original, 'yes' if is_palindrome(sentence) else 'no')
+# -
+
+# ## 6. Fibonacci
+#
+# Write a recursive function `fibonacci(n)` to print the Fibonacci sequence. In the Fibonacci sequence, each number is the sum of the previous two numbers:
+#                                                                
+# 1  1  2  3  5  8  13  21  34  55
+#
+# So fibonacci(9) gives 55.
+
+# +
+
+
+print(fibonacci(0))
+print(fibonacci(4))
+print(fibonacci(9))
+
+
+# -
+
+# ## 7. Print_tree
+#
+# Consider the following `Node` class.
+
+class Node:
+    def __init__(self, name, parent = None):
+        self.name = name
+        self.children = []
+        self.parent = parent
+        if parent is not None:
+            parent.add_child(self)
+
+    def add_child(self, node):
+        self.children.append(node)
+        
+    def get_children(self):
+        return self.children
+
+
+# Now use this class to code the following tree:
+#         
+# <img src="./resources/tree.png"  style="height: 250px"/>
+
+udo = Node("Udo")
+marc = Node("Marc", parent=udo)
+# ...
+
+# Finally write a recursive function `print_tree(node)` that prints all the descendants of a given node.
+
+# +
+
+    
+print_tree(udo)
