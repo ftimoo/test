@@ -20,13 +20,14 @@ st.markdown('# Exercises')
 #
 # Write a recursive function `sum(n)` that computes the sum of all numbers from 1 to n, where n is given as a parameter.
 # +
-st.markdown("""
+code = """
 def sum(n):
     if(n==1):
         return 1
     else:
         return n + sum(n-1)
-""")
+"""
+st.code(code, language='python')
 def sum(n):
     if(n==1):
         return 1
