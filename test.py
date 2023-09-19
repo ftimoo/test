@@ -75,7 +75,6 @@ animal = "hippopotamus"
 
 
     
-print(reverse(animal))
 # -
 
 # ## 5. Is_palindrome
