@@ -21,6 +21,20 @@ def constraint_add(variables, values):
     factor2 = int(''.join(str(values[variables.index(c)]) for c in word2))
     result = int(''.join(str(values[variables.index(c)]) for c in word3))
     return (factor1 + factor2) == result
+def constraint_unique(variables, values):
+    return len(values) == len(set(values))  # remove repeated values and count
+
+def createNum(values):
+    returnval = ""
+    for i in values:
+        returnval += str(values[i])
+    return int(returnval)
+
+def constraint_add(variables, values):
+    factor1 = int(''.join(str(values[variables.index(c)]) for c in word1))
+    factor2 = int(''.join(str(values[variables.index(c)]) for c in word2))
+    result = int(''.join(str(values[variables.index(c)]) for c in word3))
+    return (factor1 + factor2) == result
 if word1 and word2 and word3:
     variables = []
     domains = {}
@@ -32,22 +46,21 @@ if word1 and word2 and word3:
         if var not in variables:
             variables.append(var.upper())
             domains[var] = list(range(0, 10))
-    
+
     assert len(variables)<=10  , "To many diffyrent letter"
         
         
     # the list of values that each variable can take
-    
-    
-    
-    
+
+
+
     constraints = [
         (tuple(variables), constraint_unique),
         (tuple(variables), constraint_add),
     ]
-    
-    
+
+
     problem = CspProblem(tuple(variables), domains, constraints)
-    
+
     output = backtrack(problem)
-    st.write('\nSolutions:', output)
+    print('\nSolutions:', output)
