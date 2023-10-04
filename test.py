@@ -1,10 +1,10 @@
 import streamlit as st
 
-word1 = st.text_input('Movie title', 'Life of Brian')
+word1 = st.text_input('word1', '')
 
-word2 = st.text_input('Movie title', 'Life of Brian')
+word2 = st.text_input('word2', '')
 
-word3 = st.text_input('Movie title', 'Life of Brian')
+word3 = st.text_input('word3', '')
 
 st.button("Reset", type="primary")
 if st.button('Say hello'):
