@@ -1,11 +1,11 @@
 import streamlit as st
 from simpleai.search import CspProblem, backtrack
 
-word1 = st.text_input('word1', '')
+word1 = st.text_input('word1', '').upper()
 
-word2 = st.text_input('word2', '')
+word2 = st.text_input('word2', '').upper()
 
-word3 = st.text_input('word3', '')
+word3 = st.text_input('word3', '').upper()
 
 def constraint_unique(variables, values):
     return len(values) == len(set(values))  # remove repeated values and count
