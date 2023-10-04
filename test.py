@@ -61,6 +61,7 @@ if word1 and word2 and word3:
 
 
     problem = CspProblem(tuple(variables), domains, constraints)
-
+    st.write(variables,
+    domains)
     output = backtrack(problem)
     st.write(str(output))
