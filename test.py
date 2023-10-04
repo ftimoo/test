@@ -58,5 +58,6 @@ if word1 and word2 and word3:
         (tuple(variables), constraint_unique),
         (tuple(variables), constraint_add),
     ]
-    st.write(str(variables))
-    st.write(str(domains))
+    problem = CspProblem(tuple(variables), domains, constraints)
+    output = backtrack(problem)
+    st.write('\nSolutions:', str(output))
