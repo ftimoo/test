@@ -63,4 +63,4 @@ if word1 and word2 and word3:
     problem = CspProblem(tuple(variables), domains, constraints)
 
     output = backtrack(problem)
-    print('\nSolutions:', output)
+    st.write(str(output))
