@@ -21,7 +21,6 @@ def constraint_add(variables, values):
     factor2 = int(''.join(str(values[variables.index(c)]) for c in word2))
     result = int(''.join(str(values[variables.index(c)]) for c in word3))
     return (factor1 + factor2) == result
-
 if word1 and word2 and word3:
     variables = []
     domains = {}
